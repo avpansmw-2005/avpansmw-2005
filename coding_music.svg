@@ -95,16 +95,16 @@
     </g>
   </g>
 
-  <!-- Live dot status -->
+  <!-- Text Details -->
   <circle class="glow-dot" cx="95" cy="23" r="3" />
 
   <!-- Text Details -->
-  <text class="title" x="104" y="26">CURRENTLY CODING TO</text>
-  <text class="song" x="95" y="46">Synthwave &amp; Multi-Agent Systems</text>
-  <text class="artist" x="95" y="64">Developer Focus Mix · Lo-Fi Beats</text>
+  <text class="title" x="104" y="26">CURRENTLY CODING IN</text>
+  <text class="song" x="95" y="46">Multi-Agent Systems</text>
+  <text class="artist" x="95" y="64">Architecting &amp; Managing Deployment</text>
 
   <!-- Equalizer Bars -->
-  <g transform="translate(330, 48)">
+  <g transform="translate(350, 48)">
     <rect class="bar bar1" x="0" y="-24" />
     <rect class="bar bar2" x="6" y="-24" />
     <rect class="bar bar3" x="12" y="-24" />
