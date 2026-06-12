@@ -56,7 +56,7 @@
 
 <!-- Live AI Orchestration Dashboard -->
 <p>
-  <img src="ai_agent_dashboard.svg?v=2" width="100%" alt="AI Agent Orchestrator Dashboard" />
+  <img src="ai_agent_dashboard.svg?v=3" width="100%" alt="AI Agent Orchestrator Dashboard" />
 </p>
 
 </div>
@@ -298,7 +298,7 @@ class Engineer {
 
 <!-- Live Coding Soundtrack Visualizer -->
 <p align="center">
-  <img src="coding_music.svg?v=2" width="410" alt="Avneet's Coding Music" />
+  <img src="coding_music.svg?v=3" width="410" alt="Avneet's Coding Music" />
 </p>
 
 <!-- Footer Wave -->
