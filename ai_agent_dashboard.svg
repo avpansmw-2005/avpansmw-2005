@@ -59,6 +59,14 @@
         opacity: 0.6;
       }
       
+      .connection-line-orange {
+        stroke: #E05A47;
+        stroke-width: 2;
+        stroke-dasharray: 6, 4;
+        animation: dash 1.5s linear infinite;
+        opacity: 0.8;
+      }
+      
       .node-core {
         fill: url(#coreGradient);
         animation: glow 3s ease-in-out infinite;
@@ -215,14 +223,15 @@
         <rect class="bar-fill-svg bar-3" x="150" y="106" width="0" />
         <text class="terminal-txt success-text" x="290" y="112">ACTIVE</text>
         
-        <text class="terminal-txt success-text" x="0" y="140">✔ Pipeline verified. Standing by for queries...</text>
+        <text class="terminal-txt success-text" x="0" y="132">✔ Guardrails connection verified.</text>
+        <text class="terminal-txt success-text" x="0" y="147">✔ Tracing live queries on Langfuse dashboard.</text>
       </g>
       
       <!-- Static System Specs (to look busy/pro) -->
-      <g transform="translate(0, 160)">
+      <g transform="translate(0, 162)">
         <text class="terminal-txt" x="0" y="10" fill="#4b5663">-----------------------------------------</text>
-        <text class="terminal-txt" x="0" y="25"><tspan fill="#8b949e">System: </tspan><tspan fill="#e3b341">Azure VM</tspan> | <tspan fill="#8b949e">Memory: </tspan><tspan fill="#e3b341">16GB vRAM</tspan></text>
-        <text class="terminal-txt" x="0" y="40"><tspan fill="#8b949e">Latency: </tspan><tspan fill="#3fb950">142ms</tspan> | <tspan fill="#8b949e">MCP Tools: </tspan><tspan fill="#38bdf8">8 active</tspan></text>
+        <text class="terminal-txt" x="0" y="25"><tspan fill="#8b949e">System: </tspan><tspan fill="#e3b341">Azure VM</tspan> | <tspan fill="#8b949e">Guardrails: </tspan><tspan fill="#e3b341">NeMo Active</tspan></text>
+        <text class="terminal-txt" x="0" y="40"><tspan fill="#8b949e">Latency: </tspan><tspan fill="#3fb950">142ms</tspan> | <tspan fill="#8b949e">Trace Tool: </tspan><tspan fill="#38bdf8">Langfuse API</tspan></text>
       </g>
     </g>
   </g>
@@ -236,8 +245,8 @@
     <path class="connection-line" d="M 180 160 Q 140 210 100 240" fill="none" />
     <!-- Core to LangGraph (Top Right) -->
     <path class="connection-line" d="M 180 160 Q 220 110 260 80" fill="none" />
-    <!-- Core to Azure (Bottom Right) -->
-    <path class="connection-line-green" d="M 180 160 Q 220 210 260 240" fill="none" />
+    <!-- Core to Langfuse (Bottom Right) -->
+    <path class="connection-line-orange" d="M 180 160 Q 220 210 260 240" fill="none" />
 
     <!-- Core Node (Avneet Core Agent) -->
     <circle class="node-pulse" cx="180" cy="160" r="30" />
@@ -259,9 +268,9 @@
     <text x="260" y="83" fill="#a78bfa" font-size="8" font-weight="bold" text-anchor="middle" font-family="'JetBrains Mono', monospace">FLOW</text>
     <text x="260" y="112" fill="#8b949e" font-size="10" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600">LangGraph</text>
 
-    <!-- Satellite Node 4: Azure Deploy -->
-    <circle class="node-satellite" cx="260" cy="240" r="18" />
-    <text x="260" y="243" fill="#3fb950" font-size="8" font-weight="bold" text-anchor="middle" font-family="'JetBrains Mono', monospace">CLOUD</text>
-    <text x="260" y="272" fill="#8b949e" font-size="10" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600">Azure VM</text>
+    <!-- Satellite Node 4: Langfuse Observability -->
+    <circle class="node-satellite" cx="260" cy="240" r="18" style="stroke: #E05A47;" />
+    <text x="260" y="243" fill="#E05A47" font-size="8" font-weight="bold" text-anchor="middle" font-family="'JetBrains Mono', monospace">OBS</text>
+    <text x="260" y="272" fill="#8b949e" font-size="10" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600">Langfuse</text>
   </g>
 </svg>

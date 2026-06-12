@@ -79,7 +79,7 @@ class Engineer {
   readonly specializations = {
     frontend: ["React", "Next.js", "Vite", "Tailwind", "Framer Motion"],
     backend: ["FastAPI", "Node.js", "NestJS", "GraphQL"],
-    ai: ["LangChain", "LangGraph", "CrewAI", "RAG", "MCP Servers"],
+    ai: ["LangChain", "LangGraph", "CrewAI", "RAG (with Guardrails)", "MCP Servers", "Langfuse"],
     cloud: ["Azure (AZ-204)", "AWS", "Docker", "Kubernetes", "Terraform"],
     databases: ["PostgreSQL", "MongoDB", "Redis", "Pinecone", "Weaviate"],
   };
@@ -101,14 +101,12 @@ class Engineer {
 
 <!-- This section makes your profile feel "alive" — senior devs show current focus -->
 
-```
-🔭  Building:    Multi-agent SaaS platform with LangGraph + MCP servers
-🌱  Learning:    Advanced prompt engineering & fine-tuning LLMs
-👯  Open to:     Collaborating on GenAI / agentic AI open source projects
-🎯  2026 Goal:   Launch 2 AI-powered SaaS products & contribute to LangChain core
-💬  Ask me:      React architecture, RAG pipelines, agentic AI patterns
-📫  Reach me:    avneetpandey82@gmail.com | (647) 271-3487
-```
+* 🔭 **Building**: Multi-agent SaaS platform with LangGraph + MCP servers
+* 🌱 **Learning**: Advanced prompt engineering & fine-tuning LLMs | **Architecting best RAG pipelines with guardrails (utilizing <mark>Langfuse</mark> for observability ⚡)**
+* 👯 **Open to**: Collaborating on GenAI / agentic AI open source projects
+* 🎯 **2026 Goal**: Launch 2 AI-powered SaaS products & contribute to LangChain core
+* 💬 **Ask me**: React architecture, RAG pipelines, agentic AI patterns
+* 📫 **Reach me**: avneetpandey82@gmail.com | (647) 271-3487
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" />
@@ -141,6 +139,7 @@ class Engineer {
 ![Claude](https://img.shields.io/badge/Claude_API-D4896A?style=for-the-badge)
 ![RAG](https://img.shields.io/badge/RAG_Pipelines-7C3AED?style=for-the-badge)
 ![MCP](https://img.shields.io/badge/MCP_Servers-E3B341?style=for-the-badge)
+![Langfuse](https://img.shields.io/badge/Langfuse-E05A47?style=for-the-badge&logo=langfuse&logoColor=white)
 
 **Databases & Storage**
 
