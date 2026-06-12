@@ -170,7 +170,7 @@ class Engineer {
 
 ### 🟣 Full-Stack & GenAI Solution Engineer
 
-**Freelancer (US Client)** · Toronto, ON  
+**Freelancer** · Toronto, ON  
 `Jan 2026 – Present`
 
 - Architected SaaS features with **React, TypeScript, Vite, FastAPI**
