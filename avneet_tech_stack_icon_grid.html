@@ -1,0 +1,202 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1117}
+.wrap{background:#0d1117;font-family:'Space Grotesk',sans-serif;padding:1.5rem 1.75rem;border-radius:12px;border:1px solid #21262d}
+.top-bar{height:2px;background:#21262d;border-radius:2px;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.top-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#7c3aed,#38bdf8,#3fb950,#e3b341,#f97316,#7c3aed);background-size:300%;animation:slide 3s linear infinite}
+@keyframes slide{0%{background-position:0%}100%{background-position:300%}}
+.cat-block{margin-bottom:1.5rem}
+.cat-block:last-child{margin-bottom:0}
+.cat-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.cat-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.cat-label{font-size:11px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:1.2px;font-family:'JetBrains Mono',monospace}
+.cat-line{flex:1;height:1px;background:#21262d}
+.tile-grid{display:flex;flex-wrap:wrap;gap:7px}
+.tile{display:flex;align-items:center;gap:7px;padding:6px 11px 6px 8px;border-radius:8px;border:1px solid;transition:transform 0.15s,border-color 0.15s;cursor:default}
+.tile:hover{transform:translateY(-2px)}
+.tile-ic{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.tile-name{font-size:12px;font-weight:500;font-family:'JetBrains Mono',monospace;white-space:nowrap}
+
+.t-react{background:#0c2033;border-color:#1a3a52;}.t-react .tile-ic{background:#0d3247;color:#61dafb}.t-react .tile-name{color:#61dafb}
+.t-ts{background:#0d1e38;border-color:#1a3060;}.t-ts .tile-ic{background:#0d2554;color:#3178c6}.t-ts .tile-name{color:#3d8ef0}
+.t-next{background:#161b22;border-color:#30363d;}.t-next .tile-ic{background:#21262d;color:#e6edf3}.t-next .tile-name{color:#c9d1d9}
+.t-vite{background:#1a1042;border-color:#2d1e6e;}.t-vite .tile-ic{background:#22126a;color:#bd7cf0}.t-vite .tile-name{color:#bd7cf0}
+.t-tailwind{background:#062d3a;border-color:#0d4a5e;}.t-tailwind .tile-ic{background:#073544;color:#38bdf8}.t-tailwind .tile-name{color:#38bdf8}
+.t-mui{background:#0a1e3f;border-color:#1a3868;}.t-mui .tile-ic{background:#0d2657;color:#007fff}.t-mui .tile-name{color:#2d8df0}
+.t-framer{background:#2a0a30;border-color:#4a1a52;}.t-framer .tile-ic{background:#340d3d;color:#dd00ff}.t-framer .tile-name{color:#cc44f0}
+.t-redux{background:#1e0d42;border-color:#361a72;}.t-redux .tile-ic{background:#261060;color:#764abc}.t-redux .tile-name{color:#9b6bdc}
+
+.t-node{background:#0d2b0e;border-color:#1a4a1c;}.t-node .tile-ic{background:#0e3810;color:#3fb950}.t-node .tile-name{color:#3fb950}
+.t-python{background:#1a2a0a;border-color:#2d4a15;}.t-python .tile-ic{background:#223512;color:#4b8bbe}.t-python .tile-name{color:#6aacdf}
+.t-fastapi{background:#062d26;border-color:#0d4a3e;}.t-fastapi .tile-ic{background:#073530;color:#009688}.t-fastapi .tile-name{color:#00bfa5}
+.t-express{background:#1a1a14;border-color:#30302a;}.t-express .tile-ic{background:#21211a;color:#d4d4aa}.t-express .tile-name{color:#c9c9aa}
+.t-nest{background:#2a0a14;border-color:#4a1a24;}.t-nest .tile-ic{background:#34101c;color:#e0234e}.t-nest .tile-name{color:#f04060}
+.t-graphql{background:#2a0d22;border-color:#4a1a3c;}.t-graphql .tile-ic{background:#340e28;color:#e10098}.t-graphql .tile-name{color:#f040ac}
+.t-rest{background:#0d1e38;border-color:#1a3060;}.t-rest .tile-ic{background:#0d2554;color:#58a6ff}.t-rest .tile-name{color:#58a6ff}
+.t-go{background:#062434;border-color:#0d3e56;}.t-go .tile-ic{background:#072d44;color:#00add8}.t-go .tile-name{color:#00add8}
+
+.t-pg{background:#0d1e38;border-color:#1a3060;}.t-pg .tile-ic{background:#0d2554;color:#336791}.t-pg .tile-name{color:#4a8fc4}
+.t-mongo{background:#0d2b0e;border-color:#1a4a1c;}.t-mongo .tile-ic{background:#0e3810;color:#47a248}.t-mongo .tile-name{color:#47a248}
+.t-mysql{background:#0d2438;border-color:#1a3e60;}.t-mysql .tile-ic{background:#0d3050;color:#00758f}.t-mysql .tile-name{color:#00a6c6}
+.t-redis{background:#2a0e0e;border-color:#4a1a1a;}.t-redis .tile-ic{background:#341212;color:#ff6b6b}.t-redis .tile-name{color:#ff6b6b}
+.t-pinecone{background:#06213a;border-color:#0d3860;}.t-pinecone .tile-ic{background:#073050;color:#38bdf8}.t-pinecone .tile-name{color:#38bdf8}
+.t-weaviate{background:#1a0d2a;border-color:#2d1a4a;}.t-weaviate .tile-ic{background:#22103a;color:#a78bfa}.t-weaviate .tile-name{color:#a78bfa}
+
+.t-lc{background:#1e2a0a;border-color:#344a15;}.t-lc .tile-ic{background:#263514;color:#7ec8a4}.t-lc .tile-name{color:#7ec8a4}
+.t-lg{background:#1e2a0a;border-color:#344a15;}.t-lg .tile-ic{background:#263514;color:#a8d8b0}.t-lg .tile-name{color:#a8d8b0}
+.t-rag{background:#1e1060;border-color:#3a1e9e;}.t-rag .tile-ic{background:#261470;color:#a78bfa}.t-rag .tile-name{color:#a78bfa}
+.t-mcp{background:#2a1a0a;border-color:#4a2e15;}.t-mcp .tile-ic{background:#342010;color:#e3b341}.t-mcp .tile-name{color:#e3b341}
+.t-crew{background:#2a0a14;border-color:#4a1a24;}.t-crew .tile-ic{background:#34101c;color:#f97316}.t-crew .tile-name{color:#f97316}
+.t-oai{background:#062a1e;border-color:#0d4a36;}.t-oai .tile-ic{background:#073828;color:#10a37f}.t-oai .tile-name{color:#10a37f}
+.t-claude{background:#2a1a0a;border-color:#4a2e15;}.t-claude .tile-ic{background:#342010;color:#d4896a}.t-claude .tile-name{color:#d4896a}
+.t-prompt{background:#1a1060;border-color:#2e1e9e;}.t-prompt .tile-ic{background:#201470;color:#a78bfa}.t-prompt .tile-name{color:#c4a8fa}
+
+.t-docker{background:#062040;border-color:#0d3860;}.t-docker .tile-ic{background:#072e58;color:#1d63ed}.t-docker .tile-name{color:#2878f0}
+.t-aws{background:#1a1406;border-color:#2e2410;}.t-aws .tile-ic{background:#22190a;color:#ff9900}.t-aws .tile-name{color:#ff9900}
+.t-azure{background:#0a1e42;border-color:#162c6a;}.t-azure .tile-ic{background:#0d2458;color:#0089d6}.t-azure .tile-name{color:#0099f0}
+.t-gha{background:#1e1060;border-color:#341a9e;}.t-gha .tile-ic{background:#261470;color:#2088ff}.t-gha .tile-name{color:#2088ff}
+.t-k8s{background:#062040;border-color:#0d3860;}.t-k8s .tile-ic{background:#072e58;color:#326ce5}.t-k8s .tile-name{color:#4a80f0}
+.t-tf{background:#1a0840;border-color:#2e1470;}.t-tf .tile-ic{background:#200e58;color:#7b42bc}.t-tf .tile-name{color:#9b5ed6}
+.t-vercel{background:#161b22;border-color:#30363d;}.t-vercel .tile-ic{background:#21262d;color:#e6edf3}.t-vercel .tile-name{color:#c9d1d9}
+.t-ci{background:#1a1406;border-color:#2e2410;}.t-ci .tile-ic{background:#22190a;color:#e3b341}.t-ci .tile-name{color:#e3b341}
+
+.t-jest{background:#2a0d0d;border-color:#4a1818;}.t-jest .tile-ic{background:#341010;color:#c21325}.t-jest .tile-name{color:#e53c4a}
+.t-vitest{background:#1a1042;border-color:#2d1e6e;}.t-vitest .tile-ic{background:#22126a;color:#729b1a}.t-vitest .tile-name{color:#8cbe20}
+.t-pw{background:#062820;border-color:#0d4438;}.t-pw .tile-ic{background:#07342a;color:#2ead33}.t-pw .tile-name{color:#2ead33}
+.t-rtl{background:#06213a;border-color:#0d3860;}.t-rtl .tile-ic{background:#073050;color:#e33}.t-rtl .tile-name{color:#ee4444}
+.t-postman{background:#2a1206;border-color:#4a2010;}.t-postman .tile-ic{background:#341610;color:#ff6c37}.t-postman .tile-name{color:#ff6c37}
+.t-storybook{background:#2a0622;border-color:#4a1040;}.t-storybook .tile-ic{background:#34082e;color:#ff4785}.t-storybook .tile-name{color:#ff4785}
+
+.t-stripe{background:#06143a;border-color:#0d2460;}.t-stripe .tile-ic{background:#07195a;color:#635bff}.t-stripe .tile-name{color:#7a74ff}
+.t-oauth{background:#0d1e38;border-color:#1a3060;}.t-oauth .tile-ic{background:#0d2554;color:#58a6ff}.t-oauth .tile-name{color:#58a6ff}
+.t-jwt{background:#062820;border-color:#0d4438;}.t-jwt .tile-ic{background:#07342a;color:#00b9f1}.t-jwt .tile-name{color:#00b9f1}
+.t-git{background:#2a0d06;border-color:#4a1c10;}.t-git .tile-ic{background:#341410;color:#f05032}.t-git .tile-name{color:#f05032}
+.t-figma{background:#2a0622;border-color:#4a1040;}.t-figma .tile-ic{background:#34082e;color:#f24e1e}.t-figma .tile-name{color:#f24e1e}
+.t-agile{background:#062820;border-color:#0d4438;}.t-agile .tile-ic{background:#07342a;color:#3fb950}.t-agile .tile-name{color:#3fb950}
+</style>
+
+<div class="wrap">
+  <div class="top-bar"></div>
+
+  <div class="cat-block">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#0c2033;color:#61dafb"><i class="ti ti-layout-2" aria-hidden="true"></i></div>
+      <div class="cat-label">Frontend</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="tile-grid">
+      <div class="tile t-react"><div class="tile-ic"><i class="ti ti-atom" aria-hidden="true"></i></div><span class="tile-name">React</span></div>
+      <div class="tile t-ts"><div class="tile-ic"><i class="ti ti-brand-typescript" aria-hidden="true"></i></div><span class="tile-name">TypeScript</span></div>
+      <div class="tile t-next"><div class="tile-ic"><i class="ti ti-brand-nextjs" aria-hidden="true"></i></div><span class="tile-name">Next.js</span></div>
+      <div class="tile t-vite"><div class="tile-ic"><i class="ti ti-bolt" aria-hidden="true"></i></div><span class="tile-name">Vite</span></div>
+      <div class="tile t-tailwind"><div class="tile-ic"><i class="ti ti-wind" aria-hidden="true"></i></div><span class="tile-name">Tailwind CSS</span></div>
+      <div class="tile t-mui"><div class="tile-ic"><i class="ti ti-palette" aria-hidden="true"></i></div><span class="tile-name">Material UI</span></div>
+      <div class="tile t-framer"><div class="tile-ic"><i class="ti ti-ripple" aria-hidden="true"></i></div><span class="tile-name">Framer Motion</span></div>
+      <div class="tile t-redux"><div class="tile-ic"><i class="ti ti-replace" aria-hidden="true"></i></div><span class="tile-name">Redux Toolkit</span></div>
+    </div>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#062d26;color:#00bfa5"><i class="ti ti-server-2" aria-hidden="true"></i></div>
+      <div class="cat-label">Backend</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="tile-grid">
+      <div class="tile t-node"><div class="tile-ic"><i class="ti ti-brand-nodejs" aria-hidden="true"></i></div><span class="tile-name">Node.js</span></div>
+      <div class="tile t-python"><div class="tile-ic"><i class="ti ti-brand-python" aria-hidden="true"></i></div><span class="tile-name">Python</span></div>
+      <div class="tile t-fastapi"><div class="tile-ic"><i class="ti ti-zap" aria-hidden="true"></i></div><span class="tile-name">FastAPI</span></div>
+      <div class="tile t-express"><div class="tile-ic"><i class="ti ti-route" aria-hidden="true"></i></div><span class="tile-name">Express.js</span></div>
+      <div class="tile t-nest"><div class="tile-ic"><i class="ti ti-hexagon" aria-hidden="true"></i></div><span class="tile-name">NestJS</span></div>
+      <div class="tile t-graphql"><div class="tile-ic"><i class="ti ti-chart-dots-3" aria-hidden="true"></i></div><span class="tile-name">GraphQL</span></div>
+      <div class="tile t-rest"><div class="tile-ic"><i class="ti ti-api" aria-hidden="true"></i></div><span class="tile-name">REST APIs</span></div>
+      <div class="tile t-go"><div class="tile-ic"><i class="ti ti-brand-golang" aria-hidden="true"></i></div><span class="tile-name">Go</span></div>
+    </div>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#0d1e38;color:#336791"><i class="ti ti-database" aria-hidden="true"></i></div>
+      <div class="cat-label">Databases &amp; Storage</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="tile-grid">
+      <div class="tile t-pg"><div class="tile-ic"><i class="ti ti-database" aria-hidden="true"></i></div><span class="tile-name">PostgreSQL</span></div>
+      <div class="tile t-mongo"><div class="tile-ic"><i class="ti ti-leaf" aria-hidden="true"></i></div><span class="tile-name">MongoDB</span></div>
+      <div class="tile t-mysql"><div class="tile-ic"><i class="ti ti-database-cog" aria-hidden="true"></i></div><span class="tile-name">MySQL</span></div>
+      <div class="tile t-redis"><div class="tile-ic"><i class="ti ti-stack" aria-hidden="true"></i></div><span class="tile-name">Redis</span></div>
+      <div class="tile t-pinecone"><div class="tile-ic"><i class="ti ti-vector" aria-hidden="true"></i></div><span class="tile-name">Pinecone</span></div>
+      <div class="tile t-weaviate"><div class="tile-ic"><i class="ti ti-topology-star" aria-hidden="true"></i></div><span class="tile-name">Weaviate</span></div>
+    </div>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#1e1060;color:#a78bfa"><i class="ti ti-brain" aria-hidden="true"></i></div>
+      <div class="cat-label">AI / LLM &amp; Agents</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="tile-grid">
+      <div class="tile t-lc"><div class="tile-ic"><i class="ti ti-link" aria-hidden="true"></i></div><span class="tile-name">LangChain</span></div>
+      <div class="tile t-lg"><div class="tile-ic"><i class="ti ti-circles-relation" aria-hidden="true"></i></div><span class="tile-name">LangGraph</span></div>
+      <div class="tile t-rag"><div class="tile-ic"><i class="ti ti-search" aria-hidden="true"></i></div><span class="tile-name">RAG Pipelines</span></div>
+      <div class="tile t-mcp"><div class="tile-ic"><i class="ti ti-plug-connected" aria-hidden="true"></i></div><span class="tile-name">MCP</span></div>
+      <div class="tile t-crew"><div class="tile-ic"><i class="ti ti-users-group" aria-hidden="true"></i></div><span class="tile-name">CrewAI</span></div>
+      <div class="tile t-oai"><div class="tile-ic"><i class="ti ti-sparkles" aria-hidden="true"></i></div><span class="tile-name">OpenAI SDK</span></div>
+      <div class="tile t-claude"><div class="tile-ic"><i class="ti ti-message-chatbot" aria-hidden="true"></i></div><span class="tile-name">Claude API</span></div>
+      <div class="tile t-prompt"><div class="tile-ic"><i class="ti ti-terminal-2" aria-hidden="true"></i></div><span class="tile-name">Prompt Eng.</span></div>
+    </div>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#062040;color:#1d63ed"><i class="ti ti-cloud-computing" aria-hidden="true"></i></div>
+      <div class="cat-label">DevOps &amp; Cloud</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="tile-grid">
+      <div class="tile t-docker"><div class="tile-ic"><i class="ti ti-brand-docker" aria-hidden="true"></i></div><span class="tile-name">Docker</span></div>
+      <div class="tile t-aws"><div class="tile-ic"><i class="ti ti-brand-aws" aria-hidden="true"></i></div><span class="tile-name">AWS</span></div>
+      <div class="tile t-azure"><div class="tile-ic"><i class="ti ti-brand-azure" aria-hidden="true"></i></div><span class="tile-name">Azure</span></div>
+      <div class="tile t-gha"><div class="tile-ic"><i class="ti ti-git-merge" aria-hidden="true"></i></div><span class="tile-name">GitHub Actions</span></div>
+      <div class="tile t-k8s"><div class="tile-ic"><i class="ti ti-hexagons" aria-hidden="true"></i></div><span class="tile-name">Kubernetes</span></div>
+      <div class="tile t-tf"><div class="tile-ic"><i class="ti ti-topology-star-ring" aria-hidden="true"></i></div><span class="tile-name">Terraform</span></div>
+      <div class="tile t-vercel"><div class="tile-ic"><i class="ti ti-triangle" aria-hidden="true"></i></div><span class="tile-name">Vercel</span></div>
+      <div class="tile t-ci"><div class="tile-ic"><i class="ti ti-refresh" aria-hidden="true"></i></div><span class="tile-name">CI / CD</span></div>
+    </div>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#2a0d0d;color:#e53c4a"><i class="ti ti-test-pipe" aria-hidden="true"></i></div>
+      <div class="cat-label">Testing</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="tile-grid">
+      <div class="tile t-jest"><div class="tile-ic"><i class="ti ti-check" aria-hidden="true"></i></div><span class="tile-name">Jest</span></div>
+      <div class="tile t-vitest"><div class="tile-ic"><i class="ti ti-bolt" aria-hidden="true"></i></div><span class="tile-name">Vitest</span></div>
+      <div class="tile t-pw"><div class="tile-ic"><i class="ti ti-device-desktop" aria-hidden="true"></i></div><span class="tile-name">Playwright</span></div>
+      <div class="tile t-rtl"><div class="tile-ic"><i class="ti ti-atom-2" aria-hidden="true"></i></div><span class="tile-name">React Testing Lib</span></div>
+      <div class="tile t-postman"><div class="tile-ic"><i class="ti ti-send" aria-hidden="true"></i></div><span class="tile-name">Postman</span></div>
+      <div class="tile t-storybook"><div class="tile-ic"><i class="ti ti-book" aria-hidden="true"></i></div><span class="tile-name">Storybook</span></div>
+    </div>
+  </div>
+
+  <div class="cat-block" style="margin-bottom:0">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#06143a;color:#7a74ff"><i class="ti ti-tool" aria-hidden="true"></i></div>
+      <div class="cat-label">Tools &amp; Integrations</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="tile-grid">
+      <div class="tile t-stripe"><div class="tile-ic"><i class="ti ti-credit-card" aria-hidden="true"></i></div><span class="tile-name">Stripe</span></div>
+      <div class="tile t-oauth"><div class="tile-ic"><i class="ti ti-lock" aria-hidden="true"></i></div><span class="tile-name">OAuth 2.0</span></div>
+      <div class="tile t-jwt"><div class="tile-ic"><i class="ti ti-key" aria-hidden="true"></i></div><span class="tile-name">JWT</span></div>
+      <div class="tile t-git"><div class="tile-ic"><i class="ti ti-git-branch" aria-hidden="true"></i></div><span class="tile-name">Git</span></div>
+      <div class="tile t-figma"><div class="tile-ic"><i class="ti ti-brand-figma" aria-hidden="true"></i></div><span class="tile-name">Figma</span></div>
+      <div class="tile t-agile"><div class="tile-ic"><i class="ti ti-rotate-clockwise" aria-hidden="true"></i></div><span class="tile-name">Agile / Scrum</span></div>
+    </div>
+  </div>
+</div>

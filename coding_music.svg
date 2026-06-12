@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410 90" width="410" height="90">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=JetBrains+Mono&amp;display=swap');
+      
+      .card {
+        fill: #090d12;
+        stroke: #21262d;
+        stroke-width: 1.5;
+        rx: 10px;
+      }
+      
+      .title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9px;
+        fill: #a78bfa;
+        letter-spacing: 1.5px;
+        font-weight: bold;
+      }
+      
+      .song {
+        font-family: 'Outfit', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        fill: #e6edf3;
+      }
+      
+      .artist {
+        font-family: 'Outfit', sans-serif;
+        font-size: 11px;
+        fill: #8b949e;
+      }
+      
+      /* Equalizer Animation */
+      @keyframes bounce {
+        0%, 100% { transform: scaleY(0.2); }
+        50% { transform: scaleY(1); }
+      }
+      
+      .bar {
+        fill: #7c3aed;
+        transform-origin: bottom;
+        animation: bounce 1.2s ease-in-out infinite;
+        width: 3px;
+        height: 24px;
+        rx: 1.5px;
+      }
+      
+      /* Bar individual settings for organic feeling */
+      .bar1 { animation-delay: 0.1s; animation-duration: 1.0s; fill: #7c3aed; }
+      .bar2 { animation-delay: 0.3s; animation-duration: 0.8s; fill: #a78bfa; }
+      .bar3 { animation-delay: 0.0s; animation-duration: 1.4s; fill: #38bdf8; }
+      .bar4 { animation-delay: 0.5s; animation-duration: 0.9s; fill: #3fb950; }
+      .bar5 { animation-delay: 0.2s; animation-duration: 1.1s; fill: #7c3aed; }
+      .bar6 { animation-delay: 0.4s; animation-duration: 1.3s; fill: #a78bfa; }
+      .bar7 { animation-delay: 0.1s; animation-duration: 0.7s; fill: #38bdf8; }
+      .bar8 { animation-delay: 0.6s; animation-duration: 1.0s; fill: #3fb950; }
+      
+      /* Disc spinning animation */
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      
+      .disc {
+        transform-origin: 39px 45px;
+        animation: spin 6s linear infinite;
+      }
+      
+      .glow-dot {
+        fill: #3fb950;
+        animation: blink 1.5s step-end infinite;
+      }
+      
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+    </style>
+  </defs>
+
+  <!-- Card background -->
+  <rect class="card" width="408" height="88" x="1" y="1" />
+
+  <!-- Album Art (CD Disc) -->
+  <g transform="translate(10, 0)">
+    <!-- Vinyl Sleeve background -->
+    <rect x="10" y="15" width="60" height="60" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1" />
+    
+    <!-- Record Disc -->
+    <g class="disc">
+      <circle cx="39" cy="45" r="22" fill="#0d1117" stroke="#21262d" stroke-width="1.5" />
+      <circle cx="39" cy="45" r="16" fill="none" stroke="#21262d" stroke-width="1.5" stroke-dasharray="4,2" />
+      <circle cx="39" cy="45" r="10" fill="#7c3aed" />
+      <circle cx="39" cy="45" r="3" fill="#090d12" />
+    </g>
+  </g>
+
+  <!-- Live dot status -->
+  <circle class="glow-dot" cx="95" cy="23" r="3" />
+
+  <!-- Text Details -->
+  <text class="title" x="104" y="26">CURRENTLY CODING TO</text>
+  <text class="song" x="95" y="46">Synthwave &amp; Multi-Agent Systems</text>
+  <text class="artist" x="95" y="64">Developer Focus Mix · Lo-Fi Beats</text>
+
+  <!-- Equalizer Bars -->
+  <g transform="translate(330, 48)">
+    <rect class="bar bar1" x="0" y="-24" />
+    <rect class="bar bar2" x="6" y="-24" />
+    <rect class="bar bar3" x="12" y="-24" />
+    <rect class="bar bar4" x="18" y="-24" />
+    <rect class="bar bar5" x="24" y="-24" />
+    <rect class="bar bar6" x="30" y="-24" />
+    <rect class="bar bar7" x="36" y="-24" />
+    <rect class="bar bar8" x="42" y="-24" />
+  </g>
+</svg>

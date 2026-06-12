@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="100%" height="320">
+  <defs>
+    <!-- Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Outfit:wght@400;600;800&amp;display=swap');
+      
+      .svg-container {
+        font-family: 'Outfit', sans-serif;
+        background: #0d1117;
+        width: 100%;
+        height: 100%;
+      }
+      
+      /* Base animations */
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.08); opacity: 1; }
+      }
+      
+      @keyframes dash {
+        to {
+          stroke-dashoffset: -40;
+        }
+      }
+      
+      @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 2px rgba(124, 58, 237, 0.4)); }
+        50% { filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.8)); }
+      }
+      
+      @keyframes text-fade {
+        0%, 15% { opacity: 0; }
+        25%, 85% { opacity: 1; }
+        95%, 100% { opacity: 0; }
+      }
+      
+      /* Connection lines data flow */
+      .connection-line {
+        stroke: #7c3aed;
+        stroke-width: 2;
+        stroke-dasharray: 6, 4;
+        animation: dash 2s linear infinite;
+        opacity: 0.7;
+      }
+      
+      .connection-line-fast {
+        stroke: #38bdf8;
+        stroke-width: 2;
+        stroke-dasharray: 4, 3;
+        animation: dash 1.2s linear infinite;
+        opacity: 0.8;
+      }
+      
+      .connection-line-green {
+        stroke: #3fb950;
+        stroke-width: 2;
+        stroke-dasharray: 8, 4;
+        animation: dash 3s linear infinite;
+        opacity: 0.6;
+      }
+      
+      .node-core {
+        fill: url(#coreGradient);
+        animation: glow 3s ease-in-out infinite;
+      }
+      
+      .node-pulse {
+        fill: none;
+        stroke: #7c3aed;
+        stroke-width: 1.5;
+        transform-origin: 640px 160px;
+        animation: pulse 2.5s ease-in-out infinite;
+      }
+      
+      .node-satellite {
+        fill: #161b22;
+        stroke: #30363d;
+        stroke-width: 2;
+      }
+      
+      .terminal-header {
+        fill: #161b22;
+        stroke: #21262d;
+      }
+      
+      .terminal-body {
+        fill: #090d12;
+        stroke: #21262d;
+      }
+      
+      .terminal-txt {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        fill: #8b949e;
+      }
+      
+      .cmd-text {
+        fill: #a78bfa;
+        font-weight: 500;
+      }
+      
+      .output-text {
+        fill: #e6edf3;
+      }
+      
+      .success-text {
+        fill: #3fb950;
+        font-weight: bold;
+      }
+      
+      .warn-text {
+        fill: #e3b341;
+      }
+      
+      /* Text line timings */
+      .line-1 { animation: text-fade 6s infinite; }
+      .line-2 { animation: text-fade 6s infinite; animation-delay: 0.6s; }
+      .line-3 { animation: text-fade 6s infinite; animation-delay: 1.4s; }
+      .line-4 { animation: text-fade 6s infinite; animation-delay: 2.2s; }
+      .line-5 { animation: text-fade 6s infinite; animation-delay: 3s; }
+      .line-6 { animation: text-fade 6s infinite; animation-delay: 3.8s; }
+      
+      .bar-fill-svg {
+        height: 6px;
+        rx: 3px;
+      }
+      
+      /* Progress fill animations */
+      @keyframes bar-anim-1 {
+        0%, 15% { width: 0; }
+        35%, 85% { width: 120px; }
+        95%, 100% { width: 0; }
+      }
+      @keyframes bar-anim-2 {
+        0%, 35% { width: 0; }
+        55%, 85% { width: 110px; }
+        95%, 100% { width: 0; }
+      }
+      @keyframes bar-anim-3 {
+        0%, 55% { width: 0; }
+        75%, 85% { width: 130px; }
+        95%, 100% { width: 0; }
+      }
+      
+      .bar-1 { fill: #7c3aed; animation: bar-anim-1 6s infinite; }
+      .bar-2 { fill: #38bdf8; animation: bar-anim-2 6s infinite; }
+      .bar-3 { fill: #3fb950; animation: bar-anim-3 6s infinite; }
+    </style>
+    
+    <!-- Gradients -->
+    <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d12" />
+      <stop offset="100%" stop-color="#0d1117" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="320" rx="12" fill="url(#bgGradient)" stroke="#21262d" stroke-width="1.5" />
+
+  <!-- LEFT: Terminal Panel -->
+  <g transform="translate(25, 25)">
+    <!-- Window frame -->
+    <rect class="terminal-body" width="410" height="270" rx="8" />
+    <path class="terminal-header" d="M 0 8 A 8 8 0 0 1 8 0 L 402 0 A 8 8 0 0 1 410 8 L 410 28 L 0 28 Z" />
+    
+    <!-- Window buttons -->
+    <circle cx="16" cy="14" r="5" fill="#f87171" />
+    <circle cx="32" cy="14" r="5" fill="#fbbf24" />
+    <circle cx="48" cy="14" r="5" fill="#34d399" />
+    <text x="205" y="18" fill="#8b949e" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle" font-weight="500">avneet@agent: ~/genai-core</text>
+
+    <!-- Terminal Output -->
+    <g transform="translate(15, 48)">
+      <!-- Line 1: Command -->
+      <g class="line-1">
+        <text class="terminal-txt" x="0" y="12"><tspan fill="#3fb950">❯</tspan> <tspan class="cmd-text">python -m agents.orchestrator</tspan></text>
+      </g>
+      
+      <!-- Line 2: Initialize -->
+      <g class="line-2">
+        <text class="terminal-txt" x="0" y="32">[info] Initializing LangGraph Agentic Core...</text>
+      </g>
+      
+      <!-- Line 3: RAG pipeline loading -->
+      <g class="line-3">
+        <text class="terminal-txt" x="0" y="52">Connecting Pinecone Vector Index...</text>
+        <text class="terminal-txt success-text" x="250" y="52">ONLINE</text>
+      </g>
+      
+      <!-- Line 4: Progress Bar 1 -->
+      <g class="line-4">
+        <text class="terminal-txt" x="12" y="72">Knowledge Retrieval: </text>
+        <rect x="150" y="65" width="130" height="8" rx="4" fill="#161b22" />
+        <rect class="bar-fill-svg bar-1" x="150" y="66" width="0" />
+        <text class="terminal-txt success-text" x="290" y="72">92%</text>
+      </g>
+      
+      <!-- Line 5: Progress Bar 2 -->
+      <g class="line-5">
+        <text class="terminal-txt" x="12" y="92">Query Synthesis RAG: </text>
+        <rect x="150" y="85" width="130" height="8" rx="4" fill="#161b22" />
+        <rect class="bar-fill-svg bar-2" x="150" y="86" width="0" />
+        <text class="terminal-txt" fill="#38bdf8" x="290" y="92">85%</text>
+      </g>
+      
+      <!-- Line 6: Agent Status -->
+      <g class="line-6">
+        <text class="terminal-txt" x="12" y="112">Multi-Agent Sync: </text>
+        <rect x="150" y="105" width="130" height="8" rx="4" fill="#161b22" />
+        <rect class="bar-fill-svg bar-3" x="150" y="106" width="0" />
+        <text class="terminal-txt success-text" x="290" y="112">ACTIVE</text>
+        
+        <text class="terminal-txt success-text" x="0" y="140">✔ Pipeline verified. Standing by for queries...</text>
+      </g>
+      
+      <!-- Static System Specs (to look busy/pro) -->
+      <g transform="translate(0, 160)">
+        <text class="terminal-txt" x="0" y="10" fill="#4b5663">-----------------------------------------</text>
+        <text class="terminal-txt" x="0" y="25"><tspan fill="#8b949e">System: </tspan><tspan fill="#e3b341">Azure VM</tspan> | <tspan fill="#8b949e">Memory: </tspan><tspan fill="#e3b341">16GB vRAM</tspan></text>
+        <text class="terminal-txt" x="0" y="40"><tspan fill="#8b949e">Latency: </tspan><tspan fill="#3fb950">142ms</tspan> | <tspan fill="#8b949e">MCP Tools: </tspan><tspan fill="#38bdf8">8 active</tspan></text>
+      </g>
+    </g>
+  </g>
+
+  <!-- RIGHT: Node Graph Panel -->
+  <g transform="translate(460, 0)">
+    <!-- Connections -->
+    <!-- Core to FastAPI (Top Left) -->
+    <path class="connection-line-fast" d="M 180 160 Q 140 110 100 80" fill="none" />
+    <!-- Core to Pinecone (Bottom Left) -->
+    <path class="connection-line" d="M 180 160 Q 140 210 100 240" fill="none" />
+    <!-- Core to LangGraph (Top Right) -->
+    <path class="connection-line" d="M 180 160 Q 220 110 260 80" fill="none" />
+    <!-- Core to Azure (Bottom Right) -->
+    <path class="connection-line-green" d="M 180 160 Q 220 210 260 240" fill="none" />
+
+    <!-- Core Node (Avneet Core Agent) -->
+    <circle class="node-pulse" cx="180" cy="160" r="30" />
+    <circle class="node-core" cx="180" cy="160" r="24" />
+    <text x="180" y="164" fill="#090d12" font-family="'Outfit', sans-serif" font-size="10" font-weight="800" text-anchor="middle" letter-spacing="-0.5">AVNEET</text>
+
+    <!-- Satellite Node 1: FastAPI Tool -->
+    <circle class="node-satellite" cx="100" cy="80" r="18" />
+    <text x="100" y="83" fill="#e6edf3" font-size="9" text-anchor="middle" font-family="'JetBrains Mono', monospace">API</text>
+    <text x="100" y="112" fill="#8b949e" font-size="10" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600">FastAPI</text>
+
+    <!-- Satellite Node 2: Pinecone VectorDB -->
+    <circle class="node-satellite" cx="100" cy="240" r="18" fill="#1e1060" />
+    <text x="100" y="243" fill="#38bdf8" font-size="8" font-weight="bold" text-anchor="middle" font-family="'JetBrains Mono', monospace">RAG</text>
+    <text x="100" y="272" fill="#8b949e" font-size="10" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600">VectorDB</text>
+
+    <!-- Satellite Node 3: LangGraph Router -->
+    <circle class="node-satellite" cx="260" cy="80" r="18" />
+    <text x="260" y="83" fill="#a78bfa" font-size="8" font-weight="bold" text-anchor="middle" font-family="'JetBrains Mono', monospace">FLOW</text>
+    <text x="260" y="112" fill="#8b949e" font-size="10" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600">LangGraph</text>
+
+    <!-- Satellite Node 4: Azure Deploy -->
+    <circle class="node-satellite" cx="260" cy="240" r="18" />
+    <text x="260" y="243" fill="#3fb950" font-size="8" font-weight="bold" text-anchor="middle" font-family="'JetBrains Mono', monospace">CLOUD</text>
+    <text x="260" y="272" fill="#8b949e" font-size="10" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600">Azure VM</text>
+  </g>
+</svg>

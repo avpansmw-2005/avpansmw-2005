@@ -1,0 +1,446 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.gp{font-family:'Space Grotesk',sans-serif;background:#0d1117;color:#e6edf3;border-radius:12px;overflow:hidden}
+.top-bar{height:3px;background:#161b22;position:relative;overflow:hidden}
+.top-bar-fill{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,#7c3aed,#a78bfa,#38bdf8,#3fb950,#7c3aed);animation:slide 2.5s linear infinite}
+@keyframes slide{0%{left:-100%}100%{left:100%}}
+.hero{background:#0d1117;padding:1.75rem 2rem 1.25rem;border-bottom:1px solid #21262d}
+.hero-inner{display:flex;gap:1.5rem;align-items:flex-start}
+.av-wrap{position:relative;flex-shrink:0}
+.av{width:82px;height:82px;border-radius:50%;background:#1e1060;border:2px solid #30363d;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#a78bfa;letter-spacing:-1px}
+.av-ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid #7c3aed;opacity:0.4;animation:pulse-ring 2s ease-in-out infinite}
+@keyframes pulse-ring{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.05);opacity:0.8}}
+.sdot{position:absolute;bottom:3px;right:3px;width:14px;height:14px;background:#3fb950;border-radius:50%;border:2px solid #0d1117}
+.sdot::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:#3fb950;opacity:0.3;animation:pulse-dot 1.5s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{transform:scale(1);opacity:0.3}50%{transform:scale(1.5);opacity:0}}
+.hn{font-size:21px;font-weight:700;color:#e6edf3;letter-spacing:-0.5px}
+.hh{font-size:12px;color:#8b949e;font-family:'JetBrains Mono',monospace;margin-top:2px;display:flex;align-items:center;gap:10px}
+.hh-sep{color:#30363d}
+.tw-wrap{margin-top:9px;height:20px}
+.tw{font-family:'JetBrains Mono',monospace;font-size:12px;color:#a78bfa}
+.csr{display:inline-block;width:7px;height:13px;background:#a78bfa;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hbio{font-size:12px;color:#8b949e;margin-top:9px;line-height:1.6;max-width:510px}
+.hlinks{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.hl{display:flex;align-items:center;gap:5px;font-size:11px;color:#58a6ff;text-decoration:none;background:#161b22;border:1px solid #21262d;padding:4px 10px;border-radius:6px;transition:border-color 0.2s}
+.hl:hover{border-color:#58a6ff}
+.hl i{font-size:13px}
+.stats-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:1rem 2rem;background:#0d1117;border-bottom:1px solid #21262d}
+.sc{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:12px 10px;text-align:center}
+.sv{font-size:19px;font-weight:700;color:#e6edf3;display:flex;align-items:center;justify-content:center;gap:4px}
+.sv i{font-size:16px}
+.sl{font-size:11px;color:#8b949e;margin-top:3px}
+.sec{padding:1.25rem 2rem;border-bottom:1px solid #21262d}
+.sec:last-child{border-bottom:none}
+.st{font-size:11px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.st i{font-size:15px;color:#7c3aed}
+.st::after{content:'';flex:1;height:1px;background:#21262d}
+.skill-wrap{display:flex;flex-direction:column;gap:9px}
+.skill-row{display:grid;grid-template-columns:100px 1fr 36px;align-items:center;gap:10px}
+.skill-lbl{font-size:11px;color:#8b949e;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.skill-lbl i{font-size:13px;color:#7c3aed}
+.bar-track{background:#21262d;border-radius:20px;height:8px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:20px;background:#7c3aed;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+.bar-fill.blue{background:#1f6feb}
+.bar-fill.teal{background:#0e8a6a}
+.bar-fill.amber{background:#9e6a03}
+.bar-fill.green{background:#2ea043}
+.bar-fill.red{background:#b91c1c}
+.bar-pct{font-size:11px;font-weight:600;font-family:'JetBrains Mono',monospace;color:#e6edf3;text-align:right}
+.radar-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
+.radar-labels{display:flex;flex-direction:column;gap:8px}
+.rl{display:flex;align-items:center;gap:8px}
+.rl-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.rl-icon.purple{background:#1e1060;color:#a78bfa}
+.rl-icon.blue{background:#0c2d48;color:#58a6ff}
+.rl-icon.teal{background:#062d26;color:#39d0a4}
+.rl-icon.amber{background:#2d1a00;color:#e3b341}
+.rl-icon.green{background:#072810;color:#3fb950}
+.rl-text{flex:1;min-width:0}
+.rl-name{font-size:11px;font-weight:600;color:#e6edf3}
+.rl-sub{font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace}
+.mini-ring{position:relative;width:32px;height:32px;flex-shrink:0}
+.mini-ring svg{transform:rotate(-90deg)}
+.ring-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#e6edf3;font-family:'JetBrains Mono',monospace}
+.exp-list{display:flex;flex-direction:column;gap:10px}
+.ei{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:13px;border-left:3px solid transparent}
+.ei.v{border-left-color:#7c3aed}
+.ei.b{border-left-color:#1f6feb}
+.ei.g{border-left-color:#0e8a6a}
+.ei-head{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.ei-role{font-size:12px;font-weight:600;color:#e6edf3;display:flex;align-items:center;gap:5px}
+.ei-role i{font-size:14px;color:#a78bfa}
+.ei-period{font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;white-space:nowrap;flex-shrink:0;background:#21262d;padding:2px 6px;border-radius:4px}
+.ei-co{font-size:11px;color:#8b949e;margin-top:3px;display:flex;align-items:center;gap:4px}
+.ei-co i{font-size:12px;color:#7c3aed}
+.ei-bullets{margin-top:8px;display:flex;flex-direction:column;gap:3px}
+.eib{font-size:11px;color:#8b949e;display:flex;gap:6px;line-height:1.5;align-items:flex-start}
+.eib-acc{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;color:#3fb950;background:#072810;padding:1px 5px;border-radius:3px;white-space:nowrap;flex-shrink:0;font-family:'JetBrains Mono',monospace}
+.eib::before{content:'›';color:#7c3aed;flex-shrink:0;margin-top:1px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:13px}
+.pc-head{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.pc-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.pc-icon.pu{background:#1e1060;color:#a78bfa}
+.pc-icon.bl{background:#0c2d48;color:#58a6ff}
+.pc-icon.te{background:#062d26;color:#39d0a4}
+.pc-icon.am{background:#2d1a00;color:#e3b341}
+.pc-name{font-size:12px;font-weight:600;color:#58a6ff}
+.pc-metric{font-size:10px;font-family:'JetBrains Mono',monospace;color:#3fb950;background:#072810;padding:1px 6px;border-radius:3px;margin-left:auto}
+.pc-desc{font-size:11px;color:#8b949e;line-height:1.5;margin-bottom:7px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:4px}
+.pt{font-size:10px;font-family:'JetBrains Mono',monospace;background:#21262d;color:#8b949e;padding:2px 6px;border-radius:10px;border:1px solid #30363d}
+.tech-groups{display:flex;flex-direction:column;gap:9px}
+.tg-row{display:flex;align-items:flex-start;gap:10px}
+.tg-lbl{font-size:11px;color:#8b949e;min-width:78px;flex-shrink:0;padding-top:3px;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:4px}
+.tg-lbl i{font-size:13px;color:#7c3aed}
+.tg-tags{display:flex;flex-wrap:wrap;gap:5px;flex:1}
+.badge{display:flex;align-items:center;gap:4px;font-size:11px;font-family:'JetBrains Mono',monospace;padding:3px 9px;border-radius:20px;border:1px solid;font-weight:500}
+.bp{background:#1e1060;border-color:#7c3aed;color:#a78bfa}
+.bb{background:#0c2d48;border-color:#1f6feb;color:#58a6ff}
+.bt{background:#062d26;border-color:#0e8a6a;color:#39d0a4}
+.ba{background:#2d1a00;border-color:#9e6a03;color:#e3b341}
+.bg{background:#072810;border-color:#2ea043;color:#3fb950}
+.badge i{font-size:12px}
+.contrib-grid{display:grid;grid-template-columns:repeat(52,1fr);gap:2px;margin-top:8px}
+.cc{aspect-ratio:1;border-radius:2px;background:#161b22}
+.cc.l1{background:#0e4429}.cc.l2{background:#006d32}.cc.l3{background:#26a641}.cc.l4{background:#39d353}
+.cert-row{display:flex;gap:8px;flex-wrap:wrap}
+.cert{display:flex;align-items:center;gap:8px;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:10px 13px;border-left:2px solid #e3b341}
+.cert i{font-size:20px;color:#e3b341}
+.cert-n{font-size:12px;font-weight:600;color:#e6edf3}
+.cert-d{font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;margin-top:2px}
+.footer{background:#161b22;border-top:1px solid #21262d;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.f-open{display:flex;align-items:center;gap:6px;font-size:11px;color:#3fb950}
+.f-open i{font-size:14px}
+.f-txt{font-size:11px;color:#8b949e;font-family:'JetBrains Mono',monospace}
+</style>
+
+<div class="gp">
+  <div class="top-bar"><div class="top-bar-fill"></div></div>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="av-wrap">
+        <div class="av-ring"></div>
+        <div class="av">AP</div>
+        <div class="sdot" title="Open to work"></div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div class="hn">Avneet Pandey</div>
+        <div class="hh">
+          <span><i class="ti ti-map-pin" style="font-size:12px" aria-hidden="true"></i> Toronto, ON</span>
+          <span class="hh-sep">·</span>
+          <span><i class="ti ti-briefcase" style="font-size:12px" aria-hidden="true"></i> 4+ yrs exp</span>
+          <span class="hh-sep">·</span>
+          <span style="color:#3fb950"><i class="ti ti-circle-check" style="font-size:12px" aria-hidden="true"></i> AZ-204 Certified</span>
+        </div>
+        <div class="tw-wrap"><span class="tw" id="tw"></span><span class="csr"></span></div>
+        <div class="hbio">Full Stack &amp; GenAI Engineer · Building enterprise SaaS, agentic AI systems, and RAG pipelines. Actively seeking full-time and freelance roles in Toronto and remote.</div>
+        <div class="hlinks">
+          <a class="hl" href="mailto:avneetpandey82@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> avneetpandey82@gmail.com</a>
+          <a class="hl" href="https://avneet-pandey.azurewebsites.net/"><i class="ti ti-world" aria-hidden="true"></i> Portfolio</a>
+          <a class="hl" href="https://github.com/avpansmw-2005"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub</a>
+          <a class="hl" href="https://linkedin.com/in/avneet-pandey"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a class="hl" href="tel:6472713487"><i class="ti ti-phone" aria-hidden="true"></i> (647) 271-3487</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="sc">
+      <div class="sv" style="color:#a78bfa"><i class="ti ti-calendar" aria-hidden="true"></i>4+</div>
+      <div class="sl">Years Experience</div>
+    </div>
+    <div class="sc">
+      <div class="sv" style="color:#58a6ff"><i class="ti ti-rocket" aria-hidden="true"></i>6+</div>
+      <div class="sl">Shipped Projects</div>
+    </div>
+    <div class="sc">
+      <div class="sv" style="color:#e3b341"><i class="ti ti-certificate" aria-hidden="true"></i>AZ-204</div>
+      <div class="sl">Azure Certified</div>
+    </div>
+    <div class="sc">
+      <div class="sv" style="color:#3fb950"><i class="ti ti-sparkles" aria-hidden="true"></i>RAG</div>
+      <div class="sl">AI Specialist</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="st"><i class="ti ti-chart-radar" aria-hidden="true"></i>Skill Proficiency</div>
+    <div class="radar-wrap">
+      <div class="skill-wrap" id="skill-bars">
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-atom" aria-hidden="true"></i>React/TS</div><div class="bar-track"><div class="bar-fill blue" data-w="93"></div></div><div class="bar-pct" id="p0">0%</div></div>
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-brand-nextjs" aria-hidden="true"></i>Next.js</div><div class="bar-track"><div class="bar-fill blue" data-w="88"></div></div><div class="bar-pct" id="p1">0%</div></div>
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-server" aria-hidden="true"></i>FastAPI/Node</div><div class="bar-track"><div class="bar-fill teal" data-w="85"></div></div><div class="bar-pct" id="p2">0%</div></div>
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-sparkles" aria-hidden="true"></i>LangChain</div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div><div class="bar-pct" id="p3">0%</div></div>
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-database" aria-hidden="true"></i>RAG/Vector</div><div class="bar-track"><div class="bar-fill" data-w="87"></div></div><div class="bar-pct" id="p4">0%</div></div>
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-brand-docker" aria-hidden="true"></i>Docker/CI</div><div class="bar-track"><div class="bar-fill amber" data-w="80"></div></div><div class="bar-pct" id="p5">0%</div></div>
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-cloud" aria-hidden="true"></i>Azure/AWS</div><div class="bar-track"><div class="bar-fill amber" data-w="78"></div></div><div class="bar-pct" id="p6">0%</div></div>
+        <div class="skill-row"><div class="skill-lbl"><i class="ti ti-test-pipe" aria-hidden="true"></i>Testing</div><div class="bar-track"><div class="bar-fill green" data-w="75"></div></div><div class="bar-pct" id="p7">0%</div></div>
+      </div>
+
+      <div class="radar-labels">
+        <div class="rl">
+          <div class="rl-icon purple"><i class="ti ti-layers-intersect" aria-hidden="true"></i></div>
+          <div class="rl-text"><div class="rl-name">Frontend</div><div class="rl-sub">React · TS · Next.js · Vite</div></div>
+          <div class="mini-ring"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="none" stroke="#21262d" stroke-width="4"/><circle cx="16" cy="16" r="13" fill="none" stroke="#1f6feb" stroke-width="4" stroke-dasharray="81.68 81.68" stroke-dashoffset="8.17" class="ring-anim" data-pct="90"/></svg><div class="ring-label" id="rl0">0%</div></div>
+        </div>
+        <div class="rl">
+          <div class="rl-icon teal"><i class="ti ti-server-2" aria-hidden="true"></i></div>
+          <div class="rl-text"><div class="rl-name">Backend</div><div class="rl-sub">Node · FastAPI · PostgreSQL</div></div>
+          <div class="mini-ring"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="none" stroke="#21262d" stroke-width="4"/><circle cx="16" cy="16" r="13" fill="none" stroke="#0e8a6a" stroke-width="4" stroke-dasharray="81.68 81.68" stroke-dashoffset="12.25" class="ring-anim" data-pct="85"/></svg><div class="ring-label" id="rl1">0%</div></div>
+        </div>
+        <div class="rl">
+          <div class="rl-icon purple"><i class="ti ti-brain" aria-hidden="true"></i></div>
+          <div class="rl-text"><div class="rl-name">AI / LLM</div><div class="rl-sub">LangChain · RAG · MCP · Agents</div></div>
+          <div class="mini-ring"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="none" stroke="#21262d" stroke-width="4"/><circle cx="16" cy="16" r="13" fill="none" stroke="#7c3aed" stroke-width="4" stroke-dasharray="81.68 81.68" stroke-dashoffset="8.17" class="ring-anim" data-pct="92"/></svg><div class="ring-label" id="rl2">0%</div></div>
+        </div>
+        <div class="rl">
+          <div class="rl-icon amber"><i class="ti ti-cloud-upload" aria-hidden="true"></i></div>
+          <div class="rl-text"><div class="rl-name">DevOps / Cloud</div><div class="rl-sub">Docker · Azure · AWS · CI/CD</div></div>
+          <div class="mini-ring"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="none" stroke="#21262d" stroke-width="4"/><circle cx="16" cy="16" r="13" fill="none" stroke="#9e6a03" stroke-width="4" stroke-dasharray="81.68 81.68" stroke-dashoffset="16.34" class="ring-anim" data-pct="80"/></svg><div class="ring-label" id="rl3">0%</div></div>
+        </div>
+        <div class="rl">
+          <div class="rl-icon green"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <div class="rl-text"><div class="rl-name">Team &amp; Agile</div><div class="rl-sub">Code review · Mentoring · Scrum</div></div>
+          <div class="mini-ring"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="none" stroke="#21262d" stroke-width="4"/><circle cx="16" cy="16" r="13" fill="none" stroke="#2ea043" stroke-width="4" stroke-dasharray="81.68 81.68" stroke-dashoffset="20.42" class="ring-anim" data-pct="75"/></svg><div class="ring-label" id="rl4">0%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="st"><i class="ti ti-stack-2" aria-hidden="true"></i>Tech Stack</div>
+    <div class="tech-groups">
+      <div class="tg-row">
+        <div class="tg-lbl"><i class="ti ti-layout" aria-hidden="true"></i>Frontend</div>
+        <div class="tg-tags">
+          <span class="badge bb"><i class="ti ti-atom" aria-hidden="true"></i>React</span>
+          <span class="badge bb"><i class="ti ti-brand-nextjs" aria-hidden="true"></i>Next.js</span>
+          <span class="badge bb"><i class="ti ti-brand-typescript" aria-hidden="true"></i>TypeScript</span>
+          <span class="badge bb">Vite</span>
+          <span class="badge bb"><i class="ti ti-wind" aria-hidden="true"></i>Tailwind</span>
+          <span class="badge bb">MUI</span>
+          <span class="badge bb"><i class="ti ti-motion" aria-hidden="true"></i>Framer</span>
+        </div>
+      </div>
+      <div class="tg-row">
+        <div class="tg-lbl"><i class="ti ti-server" aria-hidden="true"></i>Backend</div>
+        <div class="tg-tags">
+          <span class="badge bt"><i class="ti ti-brand-python" aria-hidden="true"></i>FastAPI</span>
+          <span class="badge bt"><i class="ti ti-brand-nodejs" aria-hidden="true"></i>Node.js</span>
+          <span class="badge bt">NestJS</span>
+          <span class="badge bt"><i class="ti ti-database" aria-hidden="true"></i>PostgreSQL</span>
+          <span class="badge bt">Redis</span>
+          <span class="badge bt">GraphQL</span>
+        </div>
+      </div>
+      <div class="tg-row">
+        <div class="tg-lbl"><i class="ti ti-brain" aria-hidden="true"></i>AI / LLM</div>
+        <div class="tg-tags">
+          <span class="badge bp"><i class="ti ti-sparkles" aria-hidden="true"></i>LangChain</span>
+          <span class="badge bp">LangGraph</span>
+          <span class="badge bp">CrewAI</span>
+          <span class="badge bp"><i class="ti ti-plug-connected" aria-hidden="true"></i>MCP</span>
+          <span class="badge bp">RAG</span>
+          <span class="badge bp"><i class="ti ti-vector" aria-hidden="true"></i>Pinecone</span>
+          <span class="badge bp">OpenAI SDK</span>
+        </div>
+      </div>
+      <div class="tg-row">
+        <div class="tg-lbl"><i class="ti ti-cloud" aria-hidden="true"></i>DevOps</div>
+        <div class="tg-tags">
+          <span class="badge ba"><i class="ti ti-brand-docker" aria-hidden="true"></i>Docker</span>
+          <span class="badge ba"><i class="ti ti-brand-aws" aria-hidden="true"></i>AWS</span>
+          <span class="badge ba"><i class="ti ti-cloud-computing" aria-hidden="true"></i>Azure</span>
+          <span class="badge ba"><i class="ti ti-git-branch" aria-hidden="true"></i>GitHub Actions</span>
+          <span class="badge ba">Kubernetes</span>
+          <span class="badge ba">Terraform</span>
+        </div>
+      </div>
+      <div class="tg-row">
+        <div class="tg-lbl"><i class="ti ti-test-pipe" aria-hidden="true"></i>Testing</div>
+        <div class="tg-tags">
+          <span class="badge bg"><i class="ti ti-check" aria-hidden="true"></i>Jest</span>
+          <span class="badge bg">Vitest</span>
+          <span class="badge bg">Playwright</span>
+          <span class="badge bg">React Testing Lib</span>
+          <span class="badge bg">Postman</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="st"><i class="ti ti-briefcase" aria-hidden="true"></i>Experience</div>
+    <div class="exp-list">
+      <div class="ei v">
+        <div class="ei-head">
+          <div>
+            <div class="ei-role"><i class="ti ti-code" aria-hidden="true"></i>Full-Stack &amp; GenAI Solution Engineer</div>
+            <div class="ei-co"><i class="ti ti-building" aria-hidden="true"></i>Freelancer (US Client) · Toronto, ON</div>
+          </div>
+          <div class="ei-period">Jan 2026 – Present</div>
+        </div>
+        <div class="ei-bullets">
+          <div class="eib">Architected SaaS features with React, TypeScript, Vite, and Python FastAPI</div>
+          <div class="eib">Built agentic workflows via LangChain, CrewAI &amp; MCP for knowledge search systems</div>
+          <div class="eib">RAG pipelines with Pinecone/Weaviate for low-latency semantic retrieval</div>
+          <div class="eib">Containerized services via Docker from dev to staging with full consistency</div>
+        </div>
+      </div>
+      <div class="ei b">
+        <div class="ei-head">
+          <div>
+            <div class="ei-role"><i class="ti ti-building-bank" aria-hidden="true"></i>Full-Stack Software Engineer</div>
+            <div class="ei-co"><i class="ti ti-building" aria-hidden="true"></i>MortgEdge · Toronto, ON</div>
+          </div>
+          <div class="ei-period">Sep – Dec 2025</div>
+        </div>
+        <div class="ei-bullets">
+          <div class="eib">Engineered enterprise React + TypeScript UI components under strict design systems</div>
+          <div class="eib"><span class="eib-acc"><i class="ti ti-trending-up" style="font-size:10px" aria-hidden="true"></i>90% faster</span> loan eligibility checks via OpenAI API integration</div>
+          <div class="eib">Secure Azure financial data pipelines with full PIPEDA compliance</div>
+          <div class="eib">Performance optimization using useMemo, useCallback, and code-splitting</div>
+        </div>
+      </div>
+      <div class="ei g">
+        <div class="ei-head">
+          <div>
+            <div class="ei-role"><i class="ti ti-code-dots" aria-hidden="true"></i>Associate Software Developer</div>
+            <div class="ei-co"><i class="ti ti-building" aria-hidden="true"></i>Valuecoders · Gurgaon, India</div>
+          </div>
+          <div class="ei-period">Feb 2021 – Mar 2024</div>
+        </div>
+        <div class="ei-bullets">
+          <div class="eib"><span class="eib-acc"><i class="ti ti-trending-up" style="font-size:10px" aria-hidden="true"></i>35% traffic</span> via Next.js SSR re-architecture; improved Core Web Vitals</div>
+          <div class="eib"><span class="eib-acc"><i class="ti ti-trending-up" style="font-size:10px" aria-hidden="true"></i>40% faster</span> document retrieval with LangChain + Pinecone GenAI modules</div>
+          <div class="eib"><span class="eib-acc"><i class="ti ti-trending-up" style="font-size:10px" aria-hidden="true"></i>50+ reviews</span> standardized Redux Toolkit; reduced debug cycles by 30%</div>
+          <div class="eib">Integrated Stripe, Google, and Facebook APIs with 99.9% transaction reliability</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="st"><i class="ti ti-rocket" aria-hidden="true"></i>Featured Projects</div>
+    <div class="proj-grid">
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-icon pu"><i class="ti ti-heart-rate-monitor" aria-hidden="true"></i></div>
+          <div class="pc-name">Cancer-Copilot</div>
+          <div class="pc-metric">92% faster</div>
+        </div>
+        <div class="pc-desc">Agentic AI health platform using LangGraph for end-to-end patient intake. RAG-based medical query interpretation improved response accuracy by 30% over keyword search.</div>
+        <div class="pc-tags"><span class="pt">Next.js</span><span class="pt">LangGraph</span><span class="pt">Pinecone</span><span class="pt">Redis</span><span class="pt">Docker</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-icon bl"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+          <div class="pc-name">MortgEdge Analytics</div>
+          <div class="pc-metric">90% faster</div>
+        </div>
+        <div class="pc-desc">Financial compliance suite with multi-scenario amortization calculators and real-time rate scraping from major banking portals via Playwright automation.</div>
+        <div class="pc-tags"><span class="pt">Next.js</span><span class="pt">PostgreSQL</span><span class="pt">Python</span><span class="pt">Playwright</span><span class="pt">Stripe</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-icon te"><i class="ti ti-robot" aria-hidden="true"></i></div>
+          <div class="pc-name">Smart Helpers</div>
+          <div class="pc-metric">multi-agent</div>
+        </div>
+        <div class="pc-desc">Multi-agent orchestration platform with custom MCP servers. Generative UI auto-renders WCAG-accessible HTML views based on live chat context.</div>
+        <div class="pc-tags"><span class="pt">Next.js</span><span class="pt">MCP</span><span class="pt">RAG</span><span class="pt">Framer Motion</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-icon am"><i class="ti ti-clipboard-check" aria-hidden="true"></i></div>
+          <div class="pc-name">Inspection Center</div>
+          <div class="pc-metric">50% faster</div>
+        </div>
+        <div class="pc-desc">Cross-platform PWA for house and boat inspections. AI auto-generates structured PDF reports; offline-first via service workers for remote field use.</div>
+        <div class="pc-tags"><span class="pt">React</span><span class="pt">PWA</span><span class="pt">Node.js</span><span class="pt">ChatGPT</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:#0d1117">
+    <div class="st"><i class="ti ti-activity" aria-hidden="true"></i>Contribution Activity</div>
+    <div class="contrib-grid" id="cg"></div>
+    <div style="margin-top:6px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;display:flex;justify-content:flex-end;align-items:center;gap:4px">Less <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#161b22"></span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#0e4429"></span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#006d32"></span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#26a641"></span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#39d353"></span> More</div>
+  </div>
+
+  <div class="sec">
+    <div class="st"><i class="ti ti-certificate" aria-hidden="true"></i>Certifications &amp; Education</div>
+    <div class="cert-row">
+      <div class="cert">
+        <i class="ti ti-award" aria-hidden="true"></i>
+        <div><div class="cert-n">AZ-204 Azure Developer Associate</div><div class="cert-d">Microsoft · July 2025</div></div>
+      </div>
+      <div class="cert" style="border-left-color:#58a6ff">
+        <i class="ti ti-school" style="color:#58a6ff" aria-hidden="true"></i>
+        <div><div class="cert-n">PG Diploma · Cloud Computing</div><div class="cert-d">Loyalist College · 2024–2025</div></div>
+      </div>
+      <div class="cert" style="border-left-color:#0e8a6a">
+        <i class="ti ti-device-laptop" style="color:#39d0a4" aria-hidden="true"></i>
+        <div><div class="cert-n">B.Tech · Computer Science</div><div class="cert-d">Dronacharya College · 2017–2021</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="f-open"><i class="ti ti-circle-check" aria-hidden="true"></i> Open to work · Full-time &amp; Freelance</div>
+    <div class="f-txt">avneetpandey82@gmail.com · (647) 271-3487</div>
+  </div>
+</div>
+
+<script>
+const phrases=["Full Stack Engineer","GenAI & Agentic AI Builder","RAG Pipeline Architect","Cloud & DevOps Practitioner","React · TypeScript · Python"];
+let pi=0,ci=0,del=false,pause=false;
+const el=document.getElementById('tw');
+function type(){
+  if(pause){setTimeout(type,1500);pause=false;return}
+  const w=phrases[pi];
+  if(!del){ci++;el.textContent=w.slice(0,ci);if(ci===w.length){del=true;pause=true;setTimeout(type,80);return}}
+  else{ci--;el.textContent=w.slice(0,ci);if(ci===0){del=false;pi=(pi+1)%phrases.length}}
+  setTimeout(type,del?38:72);
+}
+type();
+
+const cg=document.getElementById('cg');
+const lvls=['','l1','l2','l3','l4'];
+const ws=[0.42,0.25,0.17,0.1,0.06];
+for(let i=0;i<52*7;i++){let r=Math.random(),s=0,lv='';for(let j=0;j<ws.length;j++){s+=ws[j];if(r<s){lv=lvls[j];break}}const d=document.createElement('div');d.className='cc '+lv;cg.appendChild(d);}
+
+setTimeout(()=>{
+  const bars=document.querySelectorAll('.bar-fill[data-w]');
+  const pcts=document.querySelectorAll('[id^="p"]');
+  bars.forEach((b,i)=>{
+    const target=parseInt(b.dataset.w);
+    b.style.width=target+'%';
+    let cur=0;
+    const interval=setInterval(()=>{
+      cur=Math.min(cur+2,target);
+      if(pcts[i])pcts[i].textContent=cur+'%';
+      if(cur>=target)clearInterval(interval);
+    },20);
+  });
+
+  const ringPcts=[90,85,92,80,75];
+  const ringIds=['rl0','rl1','rl2','rl3','rl4'];
+  ringIds.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    let cur=0;
+    const t=ringPcts[i];
+    const iv=setInterval(()=>{
+      cur=Math.min(cur+2,t);
+      if(el)el.textContent=cur+'%';
+      if(cur>=t)clearInterval(iv);
+    },22);
+  });
+},600);
+</script>
