@@ -251,8 +251,7 @@ class Engineer {
 <div align="center">
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=avpansmw-2005&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=a78bfa&icon_color=3fb950&text_color=e6edf3" height="180em" alt="GitHub Stats" />
-  &nbsp;&nbsp;
+
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=avpansmw-2005&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=a78bfa&text_color=e6edf3&langs_count=8" height="180em" alt="Top Languages" />
 </p>
 
