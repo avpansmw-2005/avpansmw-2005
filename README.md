@@ -13,7 +13,7 @@
   <a href="https://www.linkedin.com/in/avneet-pandey-1365b8184">
     <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>&nbsp;
-  <a href="https://avneet-pandey.azurewebsites.net/">
+  <a href="https://avneetpandey.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Portfolio-%237C3AED.svg?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" />
   </a>&nbsp;
   <a href="mailto:avneetpandey82@gmail.com">
@@ -72,14 +72,21 @@ class Engineer {
   readonly location = "Toronto, ON 🍁";
   readonly contact = {
     email: "avneetpandey82@gmail.com",
-    phone: "+1 (647) 271-3487"
+    phone: "+1 (647) 271-3487",
   };
 
   readonly languages = ["TypeScript", "Python", "JavaScript", "Go", "SQL"];
   readonly specializations = {
     frontend: ["React", "Next.js", "Vite", "Tailwind", "Framer Motion"],
     backend: ["FastAPI", "Node.js", "NestJS", "GraphQL"],
-    ai: ["LangChain", "LangGraph", "CrewAI", "RAG (with Guardrails)", "MCP Servers", "Langfuse"],
+    ai: [
+      "LangChain",
+      "LangGraph",
+      "CrewAI",
+      "RAG (with Guardrails)",
+      "MCP Servers",
+      "Langfuse",
+    ],
     cloud: ["Azure (AZ-204)", "AWS", "Docker", "Kubernetes", "Terraform"],
     databases: ["PostgreSQL", "MongoDB", "Redis", "Pinecone", "Weaviate"],
   };
@@ -101,12 +108,12 @@ class Engineer {
 
 <!-- This section makes your profile feel "alive" — senior devs show current focus -->
 
-* 🔭 **Building**: Multi-agent SaaS platform with LangGraph + MCP servers
-* 🌱 **Learning**: Advanced prompt engineering & fine-tuning LLMs | **Architecting best RAG pipelines with guardrails (utilizing <mark>Langfuse</mark> for observability ⚡)**
-* 👯 **Open to**: Collaborating on GenAI / agentic AI open source projects
-* 🎯 **2026 Goal**: Launch 2 AI-powered SaaS products & contribute to LangChain core
-* 💬 **Ask me**: React architecture, RAG pipelines, agentic AI patterns
-* 📫 **Reach me**: avneetpandey82@gmail.com | (647) 271-3487
+- 🔭 **Building**: Multi-agent SaaS platform with LangGraph + MCP servers
+- 🌱 **Learning**: Advanced prompt engineering & fine-tuning LLMs | **Architecting best RAG pipelines with guardrails (utilizing <mark>Langfuse</mark> for observability ⚡)**
+- 👯 **Open to**: Collaborating on GenAI / agentic AI open source projects
+- 🎯 **2026 Goal**: Launch 2 AI-powered SaaS products & contribute to LangChain core
+- 💬 **Ask me**: React architecture, RAG pipelines, agentic AI patterns
+- 📫 **Reach me**: avneetpandey82@gmail.com | (647) 271-3487
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" />
@@ -278,6 +285,7 @@ class Engineer {
 <br/>
 
 <!-- Activity Graph -->
+
 [![Avneet's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=avpansmw-2005&bg_color=0d1117&color=a78bfa&line=7c3aed&point=3fb950&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 </div>
