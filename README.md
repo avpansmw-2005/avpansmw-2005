@@ -32,7 +32,7 @@
 <!-- Profile Badges -->
 <p>
   <a href="https://www.linkedin.com/in/avneet-pandey-1365b8184"><img src="https://img.shields.io/badge/LinkedIn-Avneet%20Pandey-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-  <a href="https://avneet-pandey.azurewebsites.net/"><img src="https://img.shields.io/badge/Portfolio-avneet--pandey.azurewebsites.net-7C3AED?style=for-the-badge&logo=vercel&logoColor=white"/></a>
+  <a href="https://avneetpandey.azurewebsites.net/"><img src="https://img.shields.io/badge/Portfolio-avneet--pandey.azurewebsites.net-7C3AED?style=for-the-badge&logo=vercel&logoColor=white"/></a>
   <a href="mailto:avneetpandey82@gmail.com"><img src="https://img.shields.io/badge/Gmail-avneetpandey82-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
   <a href="tel:6472713487"><img src="https://img.shields.io/badge/Call-647--271--3487-007ACC?style=for-the-badge&logo=opsgenie&logoColor=white"/></a>
   <img src="https://img.shields.io/badge/Location-Toronto%2C%20ON%20🍁-3FB950?style=for-the-badge"/>
